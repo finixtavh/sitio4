@@ -3,13 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio web de FN-Finixtavh - Estudiante de programación, Linux y Hyprland">
     <title>FN-Finixtavh | Portafolio</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Bulma Framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        const rstring = [
+            "FN-Finixtavh",
+            "TFR",
+            "ON UR MARKS",
+            "The Fire Rises",
+            "HoIIV",
+            "rm -rf *",
+            "sudo rm -rf --no-preserve-root",
+            "Hello World",
+            "ABCDEFGHIJKLPOXIZ",
+            "I didn't had more money for a .com domain",
+            "IDK IF IM GOING TO BE ABLE TO PAY FOR THIS DOMAIN AGAIN",
+            "sudo apt -Syyu neofetch",
+            "The Mainframe",
+            "pls if you are a bot leave",
+            "I USE ARCH BTW",
+            "I USE HYPRLAND BTW",
+            "I USE ARCH AND HYPRLAND BTW",
+            "NOTHING EVER HAPPENS"
+        ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const h = document.getElementById('hero-title');
+            if (h) h.textContent = rstring[Math.floor(Math.random() * rstring.length)];
+        });
+    </script>
 </head>
 <body>
-    <h1>Portafolio - Estructura inicial</h1>
-    <p>Inicio del portafolio web personal.</p>
+    <!-- NAVBAR BULMA -->
+    <nav class="navbar is-fixed-top custom-navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item brand-logo" href="#inicio">
+                <strong>FN</strong><span class="has-text-grey-light">_Finixtavh</span>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item nav-link is-active" href="#inicio">Inicio</a>
+                <a class="navbar-item nav-link" href="#sobre-mi">Sobre mí</a>
+                <a class="navbar-item nav-link" href="#proyectos">Mis proyectos</a>
+                <a class="navbar-item nav-link" href="#habilidades">Mis habilidades</a>
+                <a class="navbar-item nav-link" href="#estudios">Mis estudios</a>
+                <a class="navbar-item nav-link" href="#contacto">Contacto</a>
+                <div class="navbar-item">
+                    <a class="button is-small is-rounded btn-accent" href="https://github.com/finixtavh" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- INICIO / HERO -->
+    <section id="inicio" class="hero is-medium hero-inicio">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-7">
+                        <p class="is-size-7 has-text-grey-light tracking-widest">finixtavh.xyz — I USE ARCH BTW</p>
+                        <h1 id="hero-title" class="title is-1 gradient-title">FN-Finixtavh</h1>
+                        <h2 class="subtitle is-5 has-text-grey-light mt-3">
+                            Estudiante de Programación · 17 años · CachyOS + Hyprland
+                        </h2>
+                        <p class="has-text-grey-light mt-4" style="max-width: 560px;">
+                            Me apasiona el desarrollo de software, la personalización de Linux y construir cosas
+                            que funcionen en la vida real. Este portafolio reúne mis proyectos, habilidades y recorrido académico.
+                        </p>
+                        <div class="buttons mt-5">
+                            <a href="#proyectos" class="button is-medium btn-accent is-rounded">
+                                <span>Ver proyectos</span>
+                                <span class="icon"><i class="fas fa-arrow-right"></i></span>
+                            </a>
+                            <a href="#contacto" class="button is-medium is-outlined is-rounded btn-outline">
+                                Contáctame
+                            </a>
+                        </div>
+                        <div class="tags mt-4">
+                            <span class="tag is-dark">Python</span>
+                            <span class="tag is-dark">Bash</span>
+                            <span class="tag is-dark">HTML/CSS</span>
+                            <span class="tag is-dark">Java</span>
+                            <span class="tag is-dark">MySQL</span>
+                            <span class="tag is-dark">Linux</span>
+                        </div>
+                    </div>
+                    <div class="column is-5 has-text-centered">
+                        <figure class="image portrait-hero is-inline-block">
+                            <img class="is-rounded portrait-img" src="img/portrait.png" alt="Retrato FN-Finixtavh">
+                        </figure>
+                        <div class="box mt-4 p-3 is-shadowless hero-card">
+                            <p class="is-size-7 has-text-grey"><i class="fas fa-terminal"></i> neofetch</p>
+                            <p class="is-size-7 has-text-left" style="font-family: monospace; line-height:1.6">
+                                <span class="has-text-success">finixtavh@cachyos</span> <span class="has-text-grey">~</span><br>
+                                OS: CachyOS + WinterOS<br>
+                                WM: Hyprland (dotfiles propios)<br>
+                                Uptime: 17 años aprendiendo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-foot has-text-centered pb-4">
+            <a href="#sobre-mi" class="has-text-grey-light is-size-7"><i class="fas fa-chevron-down"></i> Sobre mí</a>
+        </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section section-dark">
+        <div class="container">
+            <div class="card-portfolio">
+                <div class="card-header-custom">
+                    <h2 class="title is-4 mb-0"><span class="accent-bar"></span>Sobre mí</h2>
+                    <span class="tag is-light is-rounded">17 años</span>
+                </div>
+                <div class="columns is-vcentered mt-4">
+                    <div class="column is-3 has-text-centered">
+                        <img class="portrait-small is-rounded" src="img/portrait.png" alt="portrait">
+                        <p class="is-size-7 has-text-grey mt-2">FN-Finixtavh · aka lole</p>
+                        <div class="buttons is-centered mt-3">
+                            <a href="https://github.com/finixtavh" target="_blank" class="button is-small is-dark is-rounded"><i class="fab fa-github"></i>&nbsp; GitHub</a>
+                            <a href="https://soundcloud.com/lol-72-415064691" target="_blank" class="button is-small is-dark is-rounded"><i class="fab fa-soundcloud"></i>&nbsp; SoundCloud</a>
+                        </div>
+                    </div>
+                    <div class="column is-9">
+                        <div class="content has-text-grey-light">
+                            <p>
+                                Soy <strong class="has-text-white">FN-Finixtavh</strong>, estudiante de programación de 17 años.
+                                Trabajo principalmente con <strong class="has-text-white">Python y Bash/PowerShell</strong>, y estoy
+                                aprendiendo HTML/CSS, Java y MySQL. Me muevo entre <strong class="has-text-white">CachyOS y WinterOS</strong>
+                                con Hyprland y dotfiles propios — me gusta entender cómo funciona cada pieza del sistema.
+                            </p>
+                            <div class="columns is-multiline mt-3">
+                                <div class="column is-6">
+                                    <div class="info-box">
+                                        <p class="is-size-7 has-text-grey">Ocupación</p>
+                                        <p class="has-text-white">Estudiando Programación</p>
+                                    </div>
+                                </div>
+                                <div class="column is-6">
+                                    <div class="info-box">
+                                        <p class="is-size-7 has-text-grey">Sistemas operativos</p>
+                                        <p class="has-text-white"><s class="has-text-grey">Windows 11, EndeavourOS, Arch</s> → CachyOS + WinterOS</p>
+                                    </div>
+                                </div>
+                                <div class="column is-6">
+                                    <div class="info-box">
+                                        <p class="is-size-7 has-text-grey">Window Manager</p>
+                                        <p class="has-text-white">Hyprland + dotfiles propios</p>
+                                    </div>
+                                </div>
+                                <div class="column is-6">
+                                    <div class="info-box">
+                                        <p class="is-size-7 has-text-grey">Intereses</p>
+                                        <p class="has-text-white">Automatización, Linux, juegos, música</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <h5 class="is-size-7 has-text-grey tracking-widest">PREVIEW DOTFILES (DESACTUALIZADO)</h5>
+                    <div class="columns mt-2">
+                        <div class="column">
+                            <figure class="image"><img class="screenshot-wm" src="img/screenshot.png" alt="Dotfiles screenshot 1" loading="lazy"></figure>
+                        </div>
+                        <div class="column">
+                            <figure class="image"><img class="screenshot-wm" src="img/image.png" alt="Dotfiles screenshot 2" loading="lazy"></figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont-trig"><div class="trig"></div><div class="trig-i-x"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIS PROYECTOS (versión base - se expande en rama feature/proyectos) -->
+    <section id="proyectos" class="section">
+        <div class="container">
+            <h2 class="title is-4"><span class="accent-bar"></span>Mis proyectos</h2>
+            <p class="subtitle is-6 has-text-grey">Selección de trabajos recientes. Filtrá por tecnología.</p>
+
+            <div class="buttons are-small filter-buttons">
+                <button class="button is-rounded is-small is-dark filter-btn is-active" data-filter="all">Todos</button>
+                <button class="button is-rounded is-small is-dark filter-btn" data-filter="python">Python</button>
+                <button class="button is-rounded is-small is-dark filter-btn" data-filter="linux">Linux / Dotfiles</button>
+                <button class="button is-rounded is-small is-dark filter-btn" data-filter="web">Web</button>
+            </div>
+
+            <div class="columns is-multiline mt-3" id="projects-grid">
+                <!-- Proyecto base 1 -->
+                <div class="column is-6 project-card" data-category="linux">
+                    <div class="card-portfolio h-100">
+                        <h3 class="title is-5">Dotfiles-v1</h3>
+                        <p class="is-size-7 tag is-dark">Hyprland · Waybar · Rofi</p>
+                        <p class="mt-3 has-text-grey-light is-size-6">
+                            Mis primeros dotfiles en Hyprland sobre Arch. Waybar, SwayNC, wlogout y rofi con paleta Catppuccin Mocha.
+                            Actualmente desactualizados pero base de mi setup actual en CachyOS.
+                        </p>
+                        <div class="mt-4">
+                            <a href="https://github.com/finixtavh" target="_blank" class="button is-small btn-outline is-rounded"><i class="fab fa-github"></i>&nbsp; Ver en GitHub</a>
+                            <span class="tag is-light ml-2">Privado — próximo a liberar</span>
+                        </div>
+                        <div class="cont-trig"><div class="trig"></div><div class="trig-i-x"></div></div>
+                    </div>
+                </div>
+
+                <!-- Proyecto base 2 -->
+                <div class="column is-6 project-card" data-category="web">
+                    <div class="card-portfolio h-100">
+                        <h3 class="title is-5">finixtavh.xyz</h3>
+                        <p class="is-size-7 tag is-dark">HTML · CSS · Cloudflare</p>
+                        <p class="mt-3 has-text-grey-light is-size-6">
+                            Sitio personal estático publicado en Cloudflare Pages. Diseño minimal oscuro con JetBrains Mono,
+                            bordes catppuccin y detalles trig. Base de este portafolio.
+                        </p>
+                        <div class="mt-4">
+                            <a href="https://finixtavh.xyz" target="_blank" class="button is-small btn-accent is-rounded">Visitar sitio</a>
+                            <a href="https://github.com/finixtavh/finixtavh-sitio" target="_blank" class="button is-small is-dark is-rounded ml-2"><i class="fab fa-github"></i>&nbsp; Repo</a>
+                        </div>
+                        <div class="cont-trig"><div class="trig"></div><div class="trig-i-x"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notification is-dark mt-5 is-light" style="background:#1e1e2e; border:1px dashed #cba6f7;">
+                <p class="is-size-7 has-text-grey"><i class="fas fa-code-branch"></i> Más proyectos en desarrollo en la rama <code>feature/proyectos</code> — se integrarán vía <code>git merge</code>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIS HABILIDADES -->
+    <section id="habilidades" class="section section-dark">
+        <div class="container">
+            <h2 class="title is-4"><span class="accent-bar"></span>Mis habilidades</h2>
+            <div class="columns">
+                <div class="column is-7">
+                    <h3 class="title is-6 has-text-grey-light">Lenguajes de programación / marcado</h3>
+                    <div class="skill-item">
+                        <div class="is-flex is-justify-content-space-between"><span class="has-text-white">Python</span><span class="is-size-7 tag is-success is-light">Principal · Aprendiendo</span></div>
+                        <progress class="progress is-small is-success mt-2" value="75" max="100">75%</progress>
+                    </div>
+                    <div class="skill-item">
+                        <div class="is-flex is-justify-content-space-between"><span class="has-text-white">Bash & PowerShell</span><span class="is-size-7 tag is-success is-light">Principal · Aprendiendo</span></div>
+                        <progress class="progress is-small is-success mt-2" value="70" max="100">70%</progress>
+                    </div>
+                    <div class="skill-item">
+                        <div class="is-flex is-justify-content-space-between"><span class="has-text-white">HTML y CSS</span><span class="is-size-7 tag is-warning is-light">Secundario · Aprendiendo</span></div>
+                        <progress class="progress is-small is-warning mt-2" value="60" max="100">60%</progress>
+                    </div>
+                    <div class="skill-item">
+                        <div class="is-flex is-justify-content-space-between"><span class="has-text-white">Java</span><span class="is-size-7 tag is-warning is-light">Secundario · Aprendiendo</span></div>
+                        <progress class="progress is-small is-warning mt-2" value="45" max="100">45%</progress>
+                    </div>
+                    <div class="skill-item">
+                        <div class="is-flex is-justify-content-space-between"><span class="has-text-white">MySQL</span><span class="is-size-7 tag is-warning is-light">Secundario · Aprendiendo</span></div>
+                        <progress class="progress is-small is-warning mt-2" value="50" max="100">50%</progress>
+                    </div>
+                    <div class="skill-item">
+                        <div class="is-flex is-justify-content-space-between"><span class="has-text-white">JavaScript</span><span class="is-size-7 tag is-info is-light">En formación · Este portafolio</span></div>
+                        <progress class="progress is-small is-info mt-2" value="55" max="100">55%</progress>
+                    </div>
+                </div>
+                <div class="column is-5">
+                    <div class="card-portfolio">
+                        <h3 class="title is-6">Stack & herramientas</h3>
+                        <div class="tags">
+                            <span class="tag is-dark"><i class="fab fa-linux"></i>&nbsp; Linux</span>
+                            <span class="tag is-dark"><i class="fab fa-git-alt"></i>&nbsp; Git</span>
+                            <span class="tag is-dark"><i class="fab fa-github"></i>&nbsp; GitHub</span>
+                            <span class="tag is-dark">Hyprland</span>
+                            <span class="tag is-dark">Bulma</span>
+                            <span class="tag is-dark">VS Code</span>
+                            <span class="tag is-dark">Cloudflare Pages</span>
+                        </div>
+                        <div class="badges mt-4">
+                            <img src="https://img.shields.io/badge/Python-60527b?style=for-the-badge&logo=python&logoColor=white" alt="Python" loading="lazy">
+                            <img src="https://img.shields.io/badge/Bash-60527b?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash" loading="lazy">
+                            <img src="https://img.shields.io/badge/MySQL-60527b?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" loading="lazy">
+                            <img src="https://img.shields.io/badge/Linux-60527b?style=for-the-badge&logo=linux&logoColor=white" alt="Linux" loading="lazy">
+                            <img src="https://img.shields.io/badge/HTML-60527b?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" loading="lazy">
+                            <img src="https://img.shields.io/badge/CSS-60527b?style=for-the-badge&logo=css&logoColor=white" alt="CSS" loading="lazy">
+                            <img src="https://img.shields.io/badge/Java-60527b?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" loading="lazy">
+                            <img src="https://img.shields.io/badge/PowerShell-60527b?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell" loading="lazy">
+                        </div>
+                        <hr style="background:#313244; height:1px">
+                        <h4 class="is-size-7 has-text-grey tracking-widest">BLANDAS</h4>
+                        <ul class="is-size-7 has-text-grey-light mt-2" style="list-style: disc; margin-left: 18px;">
+                            <li>Autodidacta y curioso</li>
+                            <li>Resolución de problemas</li>
+                            <li>Documentación prolija</li>
+                            <li>Trabajo en equipo (Discord/Git)</li>
+                        </ul>
+                        <div class="cont-trig"><div class="trig"></div><div class="trig-i-x"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIS ESTUDIOS -->
+    <section id="estudios" class="section">
+        <div class="container">
+            <h2 class="title is-4"><span class="accent-bar"></span>Mis estudios</h2>
+            <p class="is-size-6 has-text-grey">Formación académica y cursos relevantes.</p>
+
+            <div class="timeline mt-5">
+                <div class="timeline-item">
+                    <div class="timeline-marker is-success"></div>
+                    <div class="card-portfolio timeline-content">
+                        <div class="is-flex is-justify-content-space-between is-align-items-center">
+                            <h3 class="title is-6 mb-0">Formación en Programación</h3>
+                            <span class="tag is-success is-light">2024 — Actualidad</span>
+                        </div>
+                        <p class="is-size-7 has-text-grey mt-1">Educación Media Tecnológica / Bachillerato — Orientación Informática</p>
+                        <p class="is-size-6 has-text-grey-light mt-2">
+                            Estudios centrados en lógica, algoritmos, bases de datos y desarrollo web. Proyecto de portafolio como
+                            evaluación integradora de HTML, CSS, JS y Git/GitHub.
+                        </p>
+                        <div class="tags mt-3">
+                            <span class="tag is-dark">Algoritmos</span>
+                            <span class="tag is-dark">Bases de datos</span>
+                            <span class="tag is-dark">Desarrollo web</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker is-warning"></div>
+                    <div class="card-portfolio timeline-content">
+                        <div class="is-flex is-justify-content-space-between is-align-items-center">
+                            <h3 class="title is-6 mb-0">Autodidacta — Linux & Scripting</h3>
+                            <span class="tag is-warning is-light">2023 — Actualidad</span>
+                        </div>
+                        <p class="is-size-7 has-text-grey mt-1">CachyOS / Arch Linux · Hyprland · Dotfiles</p>
+                        <p class="is-size-6 has-text-grey-light mt-2">
+                            Migración de Windows 11 a EndeavourOS, Arch y finalmente CachyOS. Aprendizaje de Bash, gestión de
+                            window managers, Waybar, SwayNC y wlogout. Publicación de dotfiles y automatización del entorno.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker is-info"></div>
+                    <div class="card-portfolio timeline-content">
+                        <div class="is-flex is-justify-content-space-between is-align-items-center">
+                            <h3 class="title is-6 mb-0">Cursos complementarios</h3>
+                            <span class="tag is-info is-light">2024 — 2025</span>
+                        </div>
+                        <p class="is-size-7 has-text-grey mt-1">Online · Documentación oficial y práctica</p>
+                        <ul class="is-size-6 has-text-grey-light mt-2" style="list-style: disc; margin-left: 18px;">
+                            <li>Python — fundamentos, manejo de JSON y estructuras</li>
+                            <li>Java — POO y conceptos base</li>
+                            <li>MySQL —_modelado y consultas</li>
+                            <li>Git & GitHub — flujo con ramas, merges y GitHub Pages</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notification is-dark mt-5" style="background:#1e1e2e; border:1px solid #313244;">
+                <p class="is-size-7 has-text-grey"><i class="fas fa-graduation-cap"></i> Próximo objetivo: profundizar JavaScript y frameworks modernos, y liberar dotfiles-v1 como proyecto open source.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section section-dark">
+        <div class="container">
+            <h2 class="title is-4"><span class="accent-bar"></span>Contacto</h2>
+            <div class="columns">
+                <div class="column is-7">
+                    <div class="card-portfolio">
+                        <h3 class="title is-5">Envíame un mensaje</h3>
+                        <p class="is-size-7 has-text-grey">Los campos se validan con JavaScript. Demo sin backend — muestra notificación local.</p>
+                        <form id="contactForm" class="mt-4" novalidate>
+                            <div class="field">
+                                <label class="label has-text-grey-light is-size-7" for="nombre">Nombre</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-dark" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                                </div>
+                                <p class="help is-danger is-hidden" id="err-nombre">Ingresá al menos 2 caracteres.</p>
+                            </div>
+                            <div class="field">
+                                <label class="label has-text-grey-light is-size-7" for="email">Email</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-dark" type="email" id="email" name="email" placeholder="tu@email.com" required>
+                                    <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <p class="help is-danger is-hidden" id="err-email">Email inválido.</p>
+                            </div>
+                            <div class="field">
+                                <label class="label has-text-grey-light is-size-7" for="mensaje">Mensaje</label>
+                                <div class="control">
+                                    <textarea class="textarea is-dark" id="mensaje" name="mensaje" placeholder="Contame tu idea o consulta..." rows="4" required></textarea>
+                                </div>
+                                <p class="help is-danger is-hidden" id="err-mensaje">Escribí al menos 10 caracteres.</p>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <button type="submit" class="button btn-accent is-rounded is-fullwidth">
+                                        <span>Enviar mensaje</span>
+                                        <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="form-feedback" class="notification is-hidden mt-3"></div>
+                        </form>
+                        <div class="cont-trig"><div class="trig"></div><div class="trig-i-x"></div></div>
+                    </div>
+                </div>
+                <div class="column is-5">
+                    <div class="card-portfolio">
+                        <h3 class="title is-6">Otras vías</h3>
+                        <div class="content is-size-6">
+                            <p><span class="icon has-text-grey"><i class="fab fa-github"></i></span> <strong class="has-text-white">GitHub:</strong> <a href="https://github.com/finixtavh" target="_blank">github.com/finixtavh</a></p>
+                            <p><span class="icon has-text-grey"><i class="fab fa-discord"></i></span> <strong class="has-text-white">Discord:</strong> finixtavh</p>
+                            <p><span class="icon has-text-grey"><i class="fab fa-soundcloud"></i></span> <strong class="has-text-white">SoundCloud:</strong> <a href="https://soundcloud.com/lol-72-415064691" target="_blank">lol72</a></p>
+                            <p><span class="icon has-text-grey"><i class="fas fa-globe"></i></span> <strong class="has-text-white">Web:</strong> <a href="https://finixtavh.xyz">finixtavh.xyz</a></p>
+                            <p><span class="icon has-text-grey"><i class="fas fa-map-marker-alt"></i></span> <strong class="has-text-white">Ubicación:</strong> Uruguay · Remoto</p>
+                        </div>
+                        <hr style="background:#313244; height:1px">
+                        <p class="is-size-7 has-text-grey">Horario de respuesta: 24-48 h. Para propuestas, incluí stack y alcance.</p>
+                        <div class="cont-trig"><div class="trig"></div><div class="trig-i-x"></div></div>
+                    </div>
+                    <div class="notification is-dark mt-4" style="background:#13131e; border:1px solid #cba6f7;">
+                        <p class="is-size-7 has-text-grey-light"><i class="fas fa-shield-alt"></i> Este formulario no envía datos reales — es una demostración de validación con JavaScript puro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer custom-footer">
+        <div class="content has-text-centered">
+            <p class="is-size-7 has-text-grey">© <span id="year"></span> FN-Finixtavh · Hecho con <span class="has-text-danger">♥</span> + Bulma + Catppuccin · <a href="https://github.com/finixtavh">GitHub</a> · <a href="https://finixtavh.xyz">finixtavh.xyz</a></p>
+            <p class="is-size-7 has-text-grey">Framework: Bulma 0.9.4 · Tecnologías: HTML · CSS · JavaScript · Git/GitHub</p>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>
