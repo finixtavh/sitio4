@@ -480,7 +480,7 @@
                 <div class="column is-7">
                     <div class="card-portfolio">
                         <h3 class="title is-5">Envíame un mensaje</h3>
-                        <p class="is-size-7 has-text-grey">Los campos se validan con JavaScript. Demo sin backend — muestra notificación local.</p>
+                        <p class="is-size-7 has-text-grey">Completa el formulario y te responderé dentro de las próximas 24-48 h.</p>
                         <form id="contactForm" class="mt-4" novalidate>
                             <div class="field">
                                 <label class="label has-text-grey-light is-size-7" for="nombre">Nombre</label>
@@ -532,13 +532,25 @@
                         <p class="is-size-7 has-text-grey">Horario de respuesta: 24-48 h. Para propuestas, incluí stack y alcance.</p>
                         <div class="cont-trig"><div class="trig"></div><div class="trig-i-x"></div></div>
                     </div>
-                    <div class="notification is-dark mt-4" style="background:#13131e; border:1px solid #cba6f7;">
-                        <p class="is-size-7 has-text-grey-light"><i class="fas fa-shield-alt"></i> Este formulario no envía datos reales — es una demostración de validación con JavaScript puro.</p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Galería lightbox -->
+    <div id="gallery-modal" class="gallery-modal is-hidden" aria-hidden="true">
+        <div class="gallery-overlay"></div>
+        <button type="button" class="gallery-close" aria-label="Cerrar galería"><i class="fas fa-times"></i></button>
+        <button type="button" class="gallery-nav gallery-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="gallery-content">
+            <img id="gallery-img" src="" alt="">
+            <p id="gallery-caption" class="gallery-caption"></p>
+        </div>
+        <button type="button" class="gallery-nav gallery-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
 
     <footer class="footer custom-footer">
         <div class="content has-text-centered">

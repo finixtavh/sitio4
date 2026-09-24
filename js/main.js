@@ -126,26 +126,105 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Toast helper
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+      toast.innerHTML = `<span class="toast-icon"><i class="fas ${icon}"></i></span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.animation = 'toastOut 0.32s ease forwards';
+        setTimeout(() => toast.remove(), 340);
+      }, 3000);
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!validate()) {
         feedback.className = 'notification is-danger is-light';
         feedback.textContent = 'Revisá los campos marcados antes de enviar.';
         feedback.classList.remove('is-hidden');
+        showToast('Revisá los campos marcados', 'error');
         return;
       }
-      // Simula envío exitoso
-      feedback.className = 'notification is-success is-light';
-      feedback.innerHTML = '<strong>¡Mensaje enviado!</strong> Gracias por contactarme, ' + escapeHtml(nombre.value.trim()) + '. Te responderé en 24-48 h. (Demo local sin backend)';
-      feedback.classList.remove('is-hidden');
+      // Éxito con toast
+      feedback.classList.add('is-hidden');
+      showToast(`¡Éxito! Gracias ${escapeHtml(nombre.value.trim())}, mensaje enviado correctamente.`, 'success');
       form.reset();
-      setTimeout(() => feedback.classList.add('is-hidden'), 7000);
     });
   }
 
   function escapeHtml(str) {
     return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   }
+
+  // Galería lightbox con flechas
+  const galleryEl = document.getElementById('gallery-modal');
+  const galleryImg = document.getElementById('gallery-img');
+  const galleryCaption = document.getElementById('gallery-caption');
+  const galleryPrev = document.querySelector('.gallery-prev');
+  const galleryNext = document.querySelector('.gallery-next');
+  const galleryClose = document.querySelector('.gallery-close');
+  const galleryOverlay = document.querySelector('.gallery-overlay');
+
+  // imágenes que forman parte de la galería
+  const gallerySources = Array.from(document.querySelectorAll('.screenshot-wm, .portrait-img, .portrait-small'))
+    .map(img => ({ src: img.currentSrc || img.src, alt: img.alt || '' }))
+    .filter((v,i,a) => a.findIndex(t=>t.src===v.src)===i); // dedup por src
+
+  let galleryIndex = 0;
+
+  function openGallery(index) {
+    galleryIndex = index;
+    updateGallery();
+    galleryEl.classList.remove('is-hidden');
+    galleryEl.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeGallery() {
+    galleryEl.classList.add('is-hidden');
+    galleryEl.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  function updateGallery() {
+    if (!gallerySources.length) return;
+    const item = gallerySources[galleryIndex];
+    galleryImg.src = item.src;
+    galleryImg.alt = item.alt;
+    galleryCaption.textContent = item.alt ? `${item.alt} — ${galleryIndex+1} / ${gallerySources.length}` : `${galleryIndex+1} / ${gallerySources.length}`;
+  }
+  function prevGallery() {
+    galleryIndex = (galleryIndex - 1 + gallerySources.length) % gallerySources.length;
+    updateGallery();
+  }
+  function nextGallery() {
+    galleryIndex = (galleryIndex + 1) % gallerySources.length;
+    updateGallery();
+  }
+
+  // asignar click a cada miniatura
+  document.querySelectorAll('.screenshot-wm, .portrait-img, .portrait-small').forEach(img => {
+    img.addEventListener('click', () => {
+      const src = img.currentSrc || img.src;
+      const idx = gallerySources.findIndex(s => s.src === src);
+      openGallery(idx >=0 ? idx : 0);
+    });
+  });
+
+  if (galleryPrev) galleryPrev.addEventListener('click', prevGallery);
+  if (galleryNext) galleryNext.addEventListener('click', nextGallery);
+  if (galleryClose) galleryClose.addEventListener('click', closeGallery);
+  if (galleryOverlay) galleryOverlay.addEventListener('click', closeGallery);
+
+  document.addEventListener('keydown', (e) => {
+    if (galleryEl.classList.contains('is-hidden')) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowLeft') prevGallery();
+    if (e.key === 'ArrowRight') nextGallery();
+  });
 
   // Smooth scroll extra (ya nativo, pero mejora)
   document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -164,4 +243,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('%cFN-Finixtavh Portfolio cargado', 'color:#cba6f7; font-weight:bold');
   console.log('Secciones: Inicio · Sobre mí · Mis proyectos · Mis habilidades · Mis estudios · Contacto');
+  if (gallerySources.length) console.log(`Galería: ${gallerySources.length} imágenes con navegación ← →`);
 });
